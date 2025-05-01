@@ -1,9 +1,9 @@
 const games = [
   {
     id: 1,
-    title: "Space Adventure",
+    title: "NOVA 2 full game",
     description: "Explore the galaxy in this exciting adventure game.",
-    image: "https://files.catbox.moe/f5zadp.jpeg",
+    image: "https://raw.githubusercontent.com/liya-hub/epic_games/main/images/Nova2clipart.jpeg",
     downloadLink: "#"
   },
   {
