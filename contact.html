@@ -1,13 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - EPIC GAMES</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* ==== Base Styles ==== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.4s, color 0.4s;
+      background: #1a202c;
+      color: #f8fafc;
+    }
+
+    body.light-mode {
+      background: #f9fafb;
+      color: #1e293b;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: white;
+      animation: slideDown 1s ease-out;
+    }
+
+    header .logo {
+      max-width: 50px;
+      margin-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a5b4fc;
+    }
+
+    .theme-toggle {
+      margin-top: 10px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: #1d4ed8;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+      min-height: 80vh;
+    }
+
+    .contact-container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: inherit;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 0 10px #6366f1;
+    }
+
+    button[type="submit"] {
+      padding: 14px;
+      background: linear-gradient(90deg, #3b82f6, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #2563eb, #7e22ce);
+    }
+
+    .map-container {
+      margin-top: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .contact-details {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #f3f4f6;
+    }
+
+    .contact-details a {
+      color: #3b82f6;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-details a:hover {
+      color: #9333ea;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    /* ==== Animations ==== */
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      .contact-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body class="light-mode">
   <header>
+    <!-- Mini Logo added -->
+    <img src="logo.png" alt="EPIC GAMES Logo" class="logo" />
     <h1 class="site-title">EPIC GAMES</h1>
     <h2 class="site-subtitle">BY EPIC TEAM</h2>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
@@ -20,8 +227,9 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="content-section">
+    <div class="contact-container">
       <h2>Contact Us</h2>
       <form>
         <label for="name">Name:</label><br>
@@ -32,11 +240,39 @@
         <textarea id="message" rows="5" required></textarea><br>
         <button type="submit">Send</button>
       </form>
-    </section>
+
+      <div class="map-container">
+        <h3>Our Location</h3>
+        <iframe src="https://www.google.com/maps/embed/v1/place?q=Colombo,+Sri+Lanka&key=YOUR_GOOGLE_MAPS_API_KEY" allowfullscreen></iframe>
+      </div>
+
+      <!-- Contact Details with Icons -->
+      <div class="contact-details">
+        <p>Or, reach us directly:</p>
+        <p>
+          <a href="https://wa.me/94760771665" target="_blank"><i class="fab fa-whatsapp icon"></i> WhatsApp: +94 760 771 665</a>
+        </p>
+        <p>
+          <a href="mailto:owner@epicgames.com" target="_blank"><i class="fas fa-envelope icon"></i> Email: owner@epicgames.com</a>
+        </p>
+      </div>
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 EPIC GAMES</p>
+    <p>&copy; 2025 EPIC GAMES | Designed by EPIC TEAM</p>
   </footer>
-  <script src="script.js"></script>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+
+    // Trigger animation
+    window.onload = () => {
+      document.querySelector(".contact-container").style.opacity = "1";
+    };
+  </script>
 </body>
-</html>
+        </html>
