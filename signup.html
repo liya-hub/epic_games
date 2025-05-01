@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up - EPIC GAMES</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .content-section {
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input {
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: inherit;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 8px #60a5fa;
+    }
+
+    button[type="submit"] {
+      padding: 14px;
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #2563eb, #7e22ce);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .content-section {
+        margin: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body class="light-mode">
   <header>
@@ -22,13 +92,15 @@
   </header>
   <main>
     <section class="content-section">
-      <h2>Create Your Account</h2>
+      <h2>✨ Create Your Account</h2>
       <form>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" required><br>
-        <button type="submit">Sign Up</button>
+        <label for="email">✉️ Email Address:</label>
+        <input type="email" id="email" required>
+
+        <label for="password">🔒 Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="submit">✅ Sign Up</button>
       </form>
     </section>
   </main>
