@@ -4,67 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EPIC GAMES</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="light-mode">
-  <header>
-    <h1 class="site-title">EPIC GAMES</h1>
-    <h2 class="site-subtitle">BY EPIC TEAM</h2>
-    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html"><span class="nav-icon">🏠</span> Home</a></li>
-        <li><a href="about.html"><span class="nav-icon">ℹ️</span> About</a></li>
-        <li><a href="signup.html"><span class="nav-icon">➡️</span> Sign Up</a></li>
-        <li><a href="contact.html"><span class="nav-icon">✉️</span> Contact</a></li>
-      </ul>
-    </nav>
-    <div class="search-container">
-      <input type="text" class="search-input" placeholder="Search for games..." />
-      <button class="search-button">🔍</button>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="content-section">
-      <h2 class="section-title">🎮 Featured Games</h2>
-
-      <div class="game-card">
-        <h3>Catch the Cup</h3>
-        <p>A fast-paced game where you catch falling cups and avoid bombs!</p>
-        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
-      </div>
-
-      <div class="game-card">
-        <h3>Island Survivor</h3>
-        <p>Craft, survive and explore mysterious islands in this thrilling adventure.</p>
-        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
-      </div>
-
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 EPIC GAMES</p>
-  </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle("light-mode");
-      document.body.classList.toggle("dark-mode");
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
 
-    function toggleMenu() {
-      document.getElementById("main-nav").classList.toggle("show");
+    .light-mode {
+      background-color: #f5f5f5;
+      color: #111;
     }
-  </script>
-</body>
-</html>    }
+
+    .dark-mode {
+      background-color: #111;
+      color: #f5f5f5;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      left: -250px;
+      top: 0;
+      background-color: #20232a;
+      padding-top: 60px;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #ccc;
+      display: block;
+    }
 
     .sidebar a:hover {
-      background-color: #1a1f2b;
-      color: #fff;
+      background-color: #333;
+      color: white;
     }
 
     .openbtn, .closebtn {
@@ -78,11 +58,6 @@
       top: 15px;
       z-index: 1100;
       border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    .openbtn:hover, .closebtn:hover {
-      background-color: #0056b3;
     }
 
     .openbtn {
@@ -125,6 +100,28 @@
       transform: translateY(-5px);
     }
 
+    .game-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #0056b3;
+    }
+
     footer {
       background: #0d1117;
       color: #ccc;
@@ -132,9 +129,18 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+    footer a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body>
+<body class="light-mode">
 
   <div id="sidebar" class="sidebar">
     <button class="closebtn" onclick="closeNav()">✖</button>
@@ -154,16 +160,21 @@
   <main id="main-content">
     <section class="content-section">
       <h2 class="section-title">🎮 Featured Games</h2>
+
       <div class="game-card">
+        <img src="images/game1.jpg" alt="Catch the Cup Game">
         <h3>Catch the Cup</h3>
         <p>A fast-paced game where you catch falling cups and avoid bombs!</p>
-        <a href="https://www.mediafire.com/" target="_blank">Download</a>
+        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
       </div>
+
       <div class="game-card">
+        <img src="images/game2.jpg" alt="Island Survivor Game">
         <h3>Island Survivor</h3>
-        <p>Craft, survive and explore mysterious islands in this adventure.</p>
-        <a href="https://www.mediafire.com/" target="_blank">Download</a>
+        <p>Craft, survive and explore mysterious islands in this thrilling adventure.</p>
+        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
       </div>
+
     </section>
   </main>
 
@@ -188,6 +199,5 @@
       document.getElementById("main-content").style.marginLeft = "0";
     }
   </script>
-
 </body>
 </html>
