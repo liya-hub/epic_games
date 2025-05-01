@@ -5,163 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EPIC GAMES</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      transition: margin-left 0.4s ease;
-      overflow-x: hidden;
-    }
-
-    .sidebar {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: -250px;
-      background-color: #0d1117;
-      color: #fff;
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-      z-index: 1000;
-    }
-
-    .sidebar a {
-      padding: 12px 30px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #ccc;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      background-color: #1a1f2b;
-      color: #fff;
-    }
-
-    .openbtn, .closebtn {
-      font-size: 26px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 15px;
-      z-index: 1100;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-
-    .openbtn:hover, .closebtn:hover {
-      background-color: #0056b3;
-    }
-
-    .openbtn {
-      left: 15px;
-    }
-
-    .closebtn {
-      left: 215px;
-      display: none;
-    }
-
-    header {
-      padding: 30px 20px;
-      background-color: #161b22;
-      color: #fff;
-      text-align: center;
-    }
-
-    main {
-      margin-left: 0;
-      padding: 20px;
-      transition: margin-left 0.4s ease;
-    }
-
-    .content-section {
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .game-card {
-      background: #f2f2f2;
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-    }
-
-    footer {
-      background: #0d1117;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
 </head>
-<body>
-
-  <div id="sidebar" class="sidebar">
-    <button class="closebtn" onclick="closeNav()">✖</button>
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">ℹ️ About</a>
-    <a href="signup.html">➡️ Sign Up</a>
-    <a href="contact.html">✉️ Contact</a>
-  </div>
-
-  <button class="openbtn" onclick="openNav()">☰</button>
-
+<body class="light-mode">
   <header>
     <h1 class="site-title">EPIC GAMES</h1>
     <h2 class="site-subtitle">BY EPIC TEAM</h2>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html"><span class="nav-icon">🏠</span> Home</a></li>
+        <li><a href="about.html"><span class="nav-icon">ℹ️</span> About</a></li>
+        <li><a href="signup.html"><span class="nav-icon">➡️</span> Sign Up</a></li>
+        <li><a href="contact.html"><span class="nav-icon">✉️</span> Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search for games..." />
+      <button class="search-button">🔍</button>
+    </div>
   </header>
 
   <main id="main-content">
     <section class="content-section">
       <h2 class="section-title">🎮 Featured Games</h2>
+
       <div class="game-card">
         <h3>Catch the Cup</h3>
         <p>A fast-paced game where you catch falling cups and avoid bombs!</p>
-        <a href="https://www.mediafire.com/" target="_blank">Download</a>
+        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
       </div>
+
       <div class="game-card">
         <h3>Island Survivor</h3>
-        <p>Craft, survive and explore mysterious islands in this adventure.</p>
-        <a href="https://www.mediafire.com/" target="_blank">Download</a>
+        <p>Craft, survive and explore mysterious islands in this thrilling adventure.</p>
+        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
       </div>
+
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 EPIC GAMES | Built by EPIC TEAM</p>
-    <p>Contact: <a href="mailto:epicteamdevs@gmail.com">epicteamdevs@gmail.com</a> | 
-    WhatsApp: <a href="https://wa.me/94760771665">076 077 1665</a></p>
+    <p>&copy; 2025 EPIC GAMES</p>
   </footer>
 
   <script>
-    function openNav() {
-      document.getElementById("sidebar").style.left = "0";
-      document.querySelector('.openbtn').style.display = "none";
-      document.querySelector('.closebtn').style.display = "block";
-      document.getElementById("main-content").style.marginLeft = "250px";
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+      document.body.classList.toggle("dark-mode");
     }
 
-    function closeNav() {
-      document.getElementById("sidebar").style.left = "-250px";
-      document.querySelector('.openbtn').style.display = "block";
-      document.querySelector('.closebtn').style.display = "none";
-      document.getElementById("main-content").style.marginLeft = "0";
+    function toggleMenu() {
+      document.getElementById("main-nav").classList.toggle("show");
     }
   </script>
-
 </body>
 </html>
