@@ -3,7 +3,7 @@ const games = [
     id: 1,
     title: "Space Adventure",
     description: "Explore the galaxy in this exciting adventure game.",
-    image: "https://files.catbox.moe/example1.jpg",
+    image: "https://files.catbox.moe/f5zadp.jpeg",
     downloadLink: "#"
   },
   {
