@@ -6,94 +6,81 @@
   <title>EPIC GAMES</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      background: #f5f5f5;
+      color: #111;
       transition: background 0.3s, color 0.3s;
     }
 
-    .light-mode {
-      background-color: #f5f5f5;
-      color: #111;
-    }
-
     .dark-mode {
-      background-color: #111;
+      background: #111;
       color: #f5f5f5;
     }
 
-    .sidebar {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      left: -250px;
-      top: 0;
-      background-color: #20232a;
-      padding-top: 60px;
-      transition: 0.3s;
-      z-index: 1000;
-    }
-
-    .sidebar a {
-      padding: 15px 25px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #ccc;
-      display: block;
-    }
-
-    .sidebar a:hover {
-      background-color: #333;
-      color: white;
-    }
-
-    .openbtn, .closebtn {
-      font-size: 26px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      position: fixed;
-      top: 15px;
-      z-index: 1100;
-      border-radius: 6px;
-    }
-
-    .openbtn {
-      left: 15px;
-    }
-
-    .closebtn {
-      left: 215px;
-      display: none;
-    }
-
     header {
-      padding: 30px 20px;
       background-color: #161b22;
       color: #fff;
+      padding: 30px 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    main {
-      margin-left: 0;
-      padding: 20px;
-      transition: margin-left 0.4s ease;
+    .site-title {
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+
+    .site-subtitle {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    .search-bar {
+      margin: 20px auto;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
     }
 
     .content-section {
       max-width: 1000px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .game-card {
-      background: #f2f2f2;
-      margin: 20px 0;
+      background: #fff;
+      margin-bottom: 30px;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s;
+    }
+
+    .dark-mode .game-card {
+      background: #222;
+      color: #eee;
     }
 
     .game-card:hover {
@@ -114,12 +101,33 @@
       color: white;
       padding: 10px 16px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      margin-top: 10px;
       transition: background 0.3s;
     }
 
     .download-btn:hover {
       background: #0056b3;
+    }
+
+    .more-info-btn {
+      margin-top: 10px;
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .game-desc {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    .dark-mode .game-desc {
+      color: #ccc;
     }
 
     footer {
@@ -140,63 +148,71 @@
     }
   </style>
 </head>
-<body class="light-mode">
-
-  <div id="sidebar" class="sidebar">
-    <button class="closebtn" onclick="closeNav()">✖</button>
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">ℹ️ About</a>
-    <a href="signup.html">➡️ Sign Up</a>
-    <a href="contact.html">✉️ Contact</a>
-  </div>
-
-  <button class="openbtn" onclick="openNav()">☰</button>
+<body>
 
   <header>
     <h1 class="site-title">EPIC GAMES</h1>
     <h2 class="site-subtitle">BY EPIC TEAM</h2>
   </header>
 
-  <main id="main-content">
-    <section class="content-section">
-      <h2 class="section-title">🎮 Featured Games</h2>
+  <div class="search-bar">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search games..." onkeyup="searchGames()" />
+  </div>
 
-      <div class="game-card">
-        <img src="images/game1.jpg" alt="Catch the Cup Game">
-        <h3>Catch the Cup</h3>
-        <p>A fast-paced game where you catch falling cups and avoid bombs!</p>
-        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
+  <main class="content-section">
+    <h2 class="section-title">🎮 Featured Games</h2>
+
+    <div class="game-card">
+      <img src="images/game1.jpg" alt="Catch the Cup Game">
+      <h3>Catch the Cup</h3>
+      <p>A fast-paced game where you catch falling cups and avoid bombs!</p>
+      <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
+      <button class="more-info-btn" onclick="toggleDescription(this)">^ More Info</button>
+      <div class="game-desc">
+        <p>This game challenges your reflexes as you quickly catch falling cups while avoiding dangerous bombs. Perfect for casual fun and leaderboard competition!</p>
       </div>
+    </div>
 
-      <div class="game-card">
-        <img src="images/game2.jpg" alt="Island Survivor Game">
-        <h3>Island Survivor</h3>
-        <p>Craft, survive and explore mysterious islands in this thrilling adventure.</p>
-        <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
+    <div class="game-card">
+      <img src="images/game2.jpg" alt="Island Survivor Game">
+      <h3>Island Survivor</h3>
+      <p>Craft, survive and explore mysterious islands in this thrilling adventure.</p>
+      <a href="https://www.mediafire.com/" target="_blank" class="download-btn">⬇️ Download</a>
+      <button class="more-info-btn" onclick="toggleDescription(this)">^ More Info</button>
+      <div class="game-desc">
+        <p>Start from nothing and build your shelter, tools, and weapons. Explore hidden caves, tame animals, and survive the harsh island environment.</p>
       </div>
+    </div>
 
-    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 EPIC GAMES | Built by EPIC TEAM</p>
-    <p>Contact: <a href="mailto:epicteamdevs@gmail.com">epicteamdevs@gmail.com</a> | 
+    <p>Contact: <a href="mailto:epicteamdevs@gmail.com">epicteamdevs@gmail.com</a> |
     WhatsApp: <a href="https://wa.me/94760771665">076 077 1665</a></p>
   </footer>
 
   <script>
-    function openNav() {
-      document.getElementById("sidebar").style.left = "0";
-      document.querySelector('.openbtn').style.display = "none";
-      document.querySelector('.closebtn').style.display = "block";
-      document.getElementById("main-content").style.marginLeft = "250px";
+    function toggleDescription(btn) {
+      const desc = btn.nextElementSibling;
+      const visible = desc.style.display === "block";
+      desc.style.display = visible ? "none" : "block";
+      btn.textContent = visible ? "^ More Info" : "˅ Less Info";
     }
 
-    function closeNav() {
-      document.getElementById("sidebar").style.left = "-250px";
-      document.querySelector('.openbtn').style.display = "block";
-      document.querySelector('.closebtn').style.display = "none";
-      document.getElementById("main-content").style.marginLeft = "0";
+    function searchGames() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".game-card");
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const description = card.querySelector("p").textContent.toLowerCase();
+        if (title.includes(input) || description.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
     }
   </script>
 </body>
